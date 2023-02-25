@@ -1,0 +1,32 @@
+{% extends 'app/base.html' %}
+
+{% block content %}
+<div class="col-sm-12">
+  <h3 class="text-center alert alert-info">Teachers Details</h3>
+  {% if teacher %}
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Name</th>
+        <th scope="col">Employee ID</th>
+        <th scope="col">City</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for tr in teacher %}
+      <tr>
+        <th scope="row">{{tr.id}}</th>
+        <td>{{tr.name}}</td>
+        <td>{{tr.roll}}</td>
+        <td>{{tr.city}}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  {% else %}
+  <h3 class="text-center alert alert-warning">No Record</h3>
+  {% endif %}
+  <h2 class="btn btn-warning my-2"><a href="{% url 'student' %}">Students Details</a></h2>
+</div>
+{% endblock content %}
